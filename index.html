@@ -1,28 +1,42 @@
-<div id="background">
-  <button id="show-dialog">open dialog</button>
-</div>
-<dialog id="dialog">
-  <button id="fullscreen">Enter fullscreen</button
-  ><button id="close-dialog">Close dialog</button>
-</dialog>
-<script>
-  document.getElementById("show-dialog").addEventListener("click", async () => {
-    document.querySelector("dialog").showModal();
-  });
-  document
-    .getElementById("close-dialog")
-    .addEventListener("click", async () => {
-      document.querySelector("dialog").close();
-    });
-  document.getElementById("fullscreen").addEventListener("click", async () => {
-    await document.documentElement.requestFullscreen();
-  });
-</script>
-<style>
-  #background {
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chrome dialog fullscreen bug demo</title>
+
+    <style>
+      #background {
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="background">
+      <button id="show-dialog">open dialog</button>
+    </div>
+    <dialog id="dialog">
+      <button id="fullscreen">Enter fullscreen</button
+      ><button id="close-dialog">Close dialog</button>
+    </dialog>
+    <script>
+      document
+        .getElementById("show-dialog")
+        .addEventListener("click", async () => {
+          document.querySelector("dialog").showModal();
+        });
+      document
+        .getElementById("close-dialog")
+        .addEventListener("click", async () => {
+          document.querySelector("dialog").close();
+        });
+      document
+        .getElementById("fullscreen")
+        .addEventListener("click", async () => {
+          await document.documentElement.requestFullscreen();
+        });
+    </script>
+  </body>
+</html>
